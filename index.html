@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+  </head>
+  <body>
+    <img id="images" style="width: 100px; height: 100px" src="" alt="Image" />
+    <button onclick="prev()">prev</button>
+    <button onclick="next()">next</button>
+
+    <script>
+      let images = document.getElementById("images");
+      let i = 0;
+      let arr = [
+        "https://i.pinimg.com/736x/cb/80/a9/cb80a9b29c3207e1363e59f6716f0747.jpg",
+        "https://i.pinimg.com/736x/34/e6/0a/34e60a2637d961aebb33247248b0481a.jpg",
+        "https://i.pinimg.com/736x/0b/cb/65/0bcb65e454edb6270779e183d78f3bbd.jpg",
+        "https://i.pinimg.com/736x/9c/63/50/9c6350bd3bfb3e4347a09270133d0b3c.jpg", 
+        "https://i.pinimg.com/736x/cf/3f/3e/cf3f3ed536dd81f78826e61368e3b8b1.jpg",
+        "https://i.pinimg.com/736x/23/82/ee/2382ee9bcd8a45b77e7b0057fb4a958f.jpg",
+      ];
+      images.src = arr[i];
+
+      function prev() {
+        i -= 1;
+        if (i < 0) {
+          i = arr.length - 1; 
+        }
+        images.src = arr[i];
+        console.log("Previous image:", arr[i]);
+      }
+
+      function next() {
+        i += 1;
+        if (i >= arr.length) {
+          i = 0; 
+        }
+        images.src = arr[i];
+        console.log("Next image:", arr[i]);
+      }
+    </script>
+  </body>
+</html>
